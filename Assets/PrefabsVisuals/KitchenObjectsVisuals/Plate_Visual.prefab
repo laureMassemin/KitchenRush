@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3812876574508226176}
   - component: {fileID: 4574446880892999736}
   - component: {fileID: 9015347671202773085}
+  - component: {fileID: 5693575135666877875}
   m_Layer: 0
   m_Name: Plate_Visual
   m_TagString: Untagged
@@ -81,6 +82,27 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f39a7cca13d100d4fa0e5ba3e3de65fe, type: 2}
   - {fileID: 11400000, guid: 281c2b719ca29c34fbfefad9cd51cc29, type: 2}
   - {fileID: 11400000, guid: 1fa0d0fcef316ff4ba713a95152c7a31, type: 2}
+--- !u!65 &5693575135666877875
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3812876574508226177}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.774418, y: 0.5332793, z: 0.88942766}
+  m_Center: {x: 0.007852793, y: 0.23336035, z: 0.0040008426}
 --- !u!1 &8833733040024465558
 GameObject:
   m_ObjectHideFlags: 0

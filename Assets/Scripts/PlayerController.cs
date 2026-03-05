@@ -23,7 +23,13 @@ public class PlayerController : MonoBehaviour {
                     if (selectedCounter is TrashCounter) {
                         Destroy(this.GetKitchenObject().gameObject);
                         this.SetKitchenObject(null);
-                    } 
+                    } else if (selectedCounter is DeliveryCounter deliveryCounter) {
+                        if (this.GetKitchenObject() is PlateKitchenObject plateKitchenObject) {
+                            // Le joueur tient une assiette et regarde le comptoir de livraison
+                            deliveryCounter.DeliverPlate(plateKitchenObject);
+                            this.SetKitchenObject(null);
+                        }
+                    }
                     else if (selectedCounter.HasKitchenObject()) {
                         // Le comptoir a déjà un objet (peut-être une assiette ?)
                         if (selectedCounter.GetKitchenObject() is PlateKitchenObject plateKitchenObject) {
@@ -48,12 +54,21 @@ public class PlayerController : MonoBehaviour {
                 } else {
                     // LE JOUEUR N'A RIEN DANS LES MAINS
                     if (selectedCounter.HasKitchenObject()) {
-                        // Le joueur ramasse l'objet (que ce soit une tomate ou une assiette)
+                        // 1. On récupère l'objet qui est sur le comptoir
                         KitchenObject objectToPickup = selectedCounter.GetKitchenObject();
+
+                        // 2. On change son parent pour le mettre dans les mains du joueur (HoldPoint)
                         objectToPickup.SetKitchenObjectParent(this.GetHoldPoint());
+
+                        // 3. On informe le joueur qu'il porte cet objet
                         this.SetKitchenObject(objectToPickup);
+
+                        // 4. On libère le comptoir
                         selectedCounter.SetKitchenObject(null);
+                        
+                        Debug.Log("Objet ramassé : " + objectToPickup.name);
                     } else {
+                        // Le comptoir est vide : on tente l'action de base du meuble (ex: distributeur d'assiettes)
                         selectedCounter.Interact();
                     }
                 }
