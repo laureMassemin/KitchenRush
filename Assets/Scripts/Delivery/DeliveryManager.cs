@@ -11,8 +11,8 @@ public class DeliveryManager : MonoBehaviour {
     private List<SO_Recipe> waitingRecipeSOList = new List<SO_Recipe>(); // Recettes en cours d'attente
 
     private float spawnRecipeTimer;
-    private float spawnRecipeTimerMax = 4f;
-    private int waitingRecipesMax = 4;
+    private float spawnRecipeTimerMax = 1f;
+    private int waitingRecipesMax = 3;
 
     private void Update() {
         spawnRecipeTimer -= Time.deltaTime;
