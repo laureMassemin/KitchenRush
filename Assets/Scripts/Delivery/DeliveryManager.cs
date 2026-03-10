@@ -2,44 +2,70 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+public class RecipeOrder {
+    public SO_Recipe recipeSO;
+    public float timer;
+}
+
 public class DeliveryManager : MonoBehaviour {
 
     public event Action OnRecipeSpawned;
     public event Action OnRecipeCompleted;
+    public event Action OnRecipeFailed;
+    
+    // NOUVEAU : Événement et variable pour le score
+    public event Action OnScoreChanged; 
+    private int score = 0;
 
-    [SerializeField] private List<SO_Recipe> recipeListSO; // Toutes les recettes possibles du jeu
-    private List<SO_Recipe> waitingRecipeSOList = new List<SO_Recipe>(); // Recettes en cours d'attente
+    [SerializeField] private List<SO_Recipe> recipeListSO;
+    private List<RecipeOrder> waitingRecipeList = new List<RecipeOrder>(); 
 
     private float spawnRecipeTimer;
-    private float spawnRecipeTimerMax = 1f;
-    private int waitingRecipesMax = 3;
+    private float spawnRecipeTimerMax = 4f;
+    private int waitingRecipesMax = 4;
 
     private void Update() {
         spawnRecipeTimer -= Time.deltaTime;
         if (spawnRecipeTimer <= 0f) {
             spawnRecipeTimer = spawnRecipeTimerMax;
 
-            if (waitingRecipeSOList.Count < waitingRecipesMax) {
-                // On choisit une recette au hasard
+            if (waitingRecipeList.Count < waitingRecipesMax) {
                 SO_Recipe waitingRecipeSO = recipeListSO[UnityEngine.Random.Range(0, recipeListSO.Count)];
-                waitingRecipeSOList.Add(waitingRecipeSO);
+                
+                RecipeOrder newOrder = new RecipeOrder {
+                    recipeSO = waitingRecipeSO,
+                    timer = waitingRecipeSO.recipeTimerMax
+                };
+                waitingRecipeList.Add(newOrder);
 
                 OnRecipeSpawned?.Invoke();
+            }
+        }
+
+        for (int i = 0; i < waitingRecipeList.Count; i++) {
+            waitingRecipeList[i].timer -= Time.deltaTime;
+            if (waitingRecipeList[i].timer <= 0f) {
+                
+                // NOUVEAU : Malus de temps écoulé (-5 points)
+                score -= 5;
+                //if (score < 0) score = 0; // (Optionnel) Empêche le score de descendre sous 0
+                OnScoreChanged?.Invoke(); // Met à jour l'UI
+
+                waitingRecipeList.RemoveAt(i);
+                OnRecipeFailed?.Invoke(); 
+                i--; 
             }
         }
     }
 
     public void DeliverRecipe(PlateKitchenObject plateKitchenObject) {
-        // On parcourt les recettes en attente
-        for (int i = 0; i < waitingRecipeSOList.Count; i++) {
-            SO_Recipe waitingRecipeSO = waitingRecipeSOList[i];
+        for (int i = 0; i < waitingRecipeList.Count; i++) {
+            RecipeOrder waitingRecipeOrder = waitingRecipeList[i];
 
-            // On vérifie si le nombre d'ingrédients correspond
-            if (waitingRecipeSO.kitchenObjectSOList.Count == plateKitchenObject.GetKitchenObjectSOList().Count) {
+            if (waitingRecipeOrder.recipeSO.kitchenObjectSOList.Count == plateKitchenObject.GetKitchenObjectSOList().Count) {
                 bool plateContentsMatchesRecipe = true;
-
-                // On vérifie chaque ingrédient de la recette
-                foreach (SO_KitchenObject recipeIngredientSO in waitingRecipeSO.kitchenObjectSOList) {
+                
+                foreach (SO_KitchenObject recipeIngredientSO in waitingRecipeOrder.recipeSO.kitchenObjectSOList) {
                     bool ingredientFound = false;
                     foreach (SO_KitchenObject plateIngredientSO in plateKitchenObject.GetKitchenObjectSOList()) {
                         if (plateIngredientSO == recipeIngredientSO) {
@@ -53,17 +79,27 @@ public class DeliveryManager : MonoBehaviour {
                 }
 
                 if (plateContentsMatchesRecipe) {
-                    // La recette est correcte !
-                    waitingRecipeSOList.RemoveAt(i);
+                    // NOUVEAU : Bonus de réussite (+10 points)
+                    score += 10;
+                    OnScoreChanged?.Invoke(); // Met à jour l'UI
+
+                    waitingRecipeList.RemoveAt(i);
                     OnRecipeCompleted?.Invoke();
-                    Debug.Log("Commande livrée avec succès !");
                     return;
                 }
             }
         }
-        // Aucune correspondance trouvée
+        
+        // NOUVEAU : Malus si on livre une mauvaise assiette (-2 points)
+        score -= 2;
+        if (score < 0) score = 0;
+        OnScoreChanged?.Invoke();
+
         Debug.Log("Mauvaise recette !");
     }
 
-    public List<SO_Recipe> GetWaitingRecipeSOList() => waitingRecipeSOList;
+    public List<RecipeOrder> GetWaitingRecipeList() => waitingRecipeList; 
+    
+    // NOUVEAU : Permet à l'UI de lire le score
+    public int GetScore() => score; 
 }

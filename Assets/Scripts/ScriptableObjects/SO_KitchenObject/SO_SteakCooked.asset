@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: SO_SteakCooked
   m_EditorClassIdentifier: 
   prefab: {fileID: 3812876574508226177, guid: e879ff1414d1dd64c9ad7b04bffdfaef, type: 3}
-  icon: {fileID: 21300000, guid: f1f50c7ef90b19741b26f2040806cf56, type: 3}
+  sprite: {fileID: 21300000, guid: f1f50c7ef90b19741b26f2040806cf56, type: 3}
   objectName: Steak Cooked
+  plateVisualLowerPrefab: {fileID: 0}
+  plateVisualUpperPrefab: {fileID: 0}

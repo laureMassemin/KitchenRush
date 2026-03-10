@@ -5,4 +5,5 @@ using UnityEngine;
 public class SO_Recipe : ScriptableObject {
     public List<SO_KitchenObject> kitchenObjectSOList; // Liste des ingrédients (Pain, Steak, etc.)
     public string recipeName;
+    public float recipeTimerMax = 30f;
 }

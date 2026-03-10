@@ -12,9 +12,15 @@ public class DeliveryManagerUI : MonoBehaviour {
     }
 
     private void Start() {
-        // Les abonnements resteront les mêmes
         deliveryManager.OnRecipeSpawned += DeliveryManager_OnRecipeSpawned;
         deliveryManager.OnRecipeCompleted += DeliveryManager_OnRecipeCompleted;
+        
+        // NOUVEAU : On s'abonne à l'échec
+        deliveryManager.OnRecipeFailed += DeliveryManager_OnRecipeFailed; 
+        UpdateVisual();
+    }
+
+    private void DeliveryManager_OnRecipeFailed() {
         UpdateVisual();
     }
 
@@ -29,17 +35,17 @@ public class DeliveryManagerUI : MonoBehaviour {
     }
 
     private void UpdateVisual() {
-        // On nettoie l'ancien visuel
         foreach (Transform child in container) {
             if (child == recipeTemplate) continue;
             Destroy(child.gameObject);
         }
 
-        // On crée un nouveau visuel pour chaque recette en attente
-        foreach (SO_Recipe recipeSO in deliveryManager.GetWaitingRecipeSOList()) {
+        // On utilise RecipeOrder ici
+        foreach (RecipeOrder recipeOrder in deliveryManager.GetWaitingRecipeList()) {
             Transform recipeTransform = Instantiate(recipeTemplate, container);
             recipeTransform.gameObject.SetActive(true);
-            recipeTransform.GetComponent<DeliveryManagerSingleUI>().SetRecipeSO(recipeSO);
+            // On donne la commande entière au script UI
+            recipeTransform.GetComponent<DeliveryManagerSingleUI>().SetRecipeOrder(recipeOrder);
         }
     }
 }
