@@ -12,6 +12,7 @@ public class DeliveryManager : MonoBehaviour {
     public event Action OnRecipeSpawned;
     public event Action OnRecipeCompleted;
     public event Action OnRecipeFailed;
+    public event Action OnRecipeWrong;
     
     // NOUVEAU : Événement et variable pour le score
     public event Action OnScoreChanged; 
@@ -94,8 +95,10 @@ public class DeliveryManager : MonoBehaviour {
         score -= 2;
         if (score < 0) score = 0;
         OnScoreChanged?.Invoke();
+        OnRecipeWrong?.Invoke();
 
         Debug.Log("Mauvaise recette !");
+
     }
 
     public List<RecipeOrder> GetWaitingRecipeList() => waitingRecipeList; 

@@ -506,6 +506,8 @@ MonoBehaviour:
   spawnPoint: {fileID: 5477564333561388983}
   cuttingRecipeSOArray:
   - {fileID: 11400000, guid: fd5b52aade382e749be7c80482804e9c, type: 2}
+  - {fileID: 11400000, guid: 8b239be8ae12d9f47b67d4fdd5f3f428, type: 2}
+  - {fileID: 11400000, guid: 1b1c2e412b60bc241b5b237be6d082c4, type: 2}
 --- !u!1 &7793978707398912270
 GameObject:
   m_ObjectHideFlags: 0
