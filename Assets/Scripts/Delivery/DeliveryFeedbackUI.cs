@@ -7,6 +7,9 @@ public class DeliveryFeedbackUI : MonoBehaviour {
     [SerializeField] private DeliveryManager deliveryManager;
     [SerializeField] private TextMeshProUGUI popupText; // Le texte (+10, -5...)
     [SerializeField] private Image redFlashImage; // L'image rouge en plein écran
+    [SerializeField] private Image greenFlashImage; 
+
+
 
     private float showTimer;
 
@@ -20,15 +23,20 @@ public class DeliveryFeedbackUI : MonoBehaviour {
 
     private void DeliveryManager_OnRecipeCompleted() {
         ShowText("+10", Color.green);
+        greenFlashImage.gameObject.SetActive(true); // Active le flash vert
+        redFlashImage.gameObject.SetActive(false);
     }
 
     private void DeliveryManager_OnRecipeFailed() {
         ShowText("-5\nTemps écoulé !", Color.red);
+        redFlashImage.gameObject.SetActive(true); // Active le flash rouge
+        greenFlashImage.gameObject.SetActive(false);
     }
 
     private void DeliveryManager_OnRecipeWrong() {
         ShowText("-2\nMauvais plat !", Color.red);
         redFlashImage.gameObject.SetActive(true); // Active le flash rouge
+        greenFlashImage.gameObject.SetActive(false);
     }
 
     private void ShowText(string text, Color color) {
@@ -41,6 +49,7 @@ public class DeliveryFeedbackUI : MonoBehaviour {
     private void Hide() {
         popupText.gameObject.SetActive(false);
         redFlashImage.gameObject.SetActive(false);
+        greenFlashImage.gameObject.SetActive(false);
     }
 
     private void Update() {
