@@ -42,6 +42,6 @@ public class CharacterSelectionMenu : MonoBehaviour {
         PlayerPrefs.Save();
 
         // Remplace "GameScene" par le nom exact de ta scène de jeu
-        SceneManager.LoadScene("GameScene"); 
+        SceneManager.LoadScene("TutorialScene"); 
     }
 }
