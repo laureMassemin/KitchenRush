@@ -13,6 +13,7 @@ public class DeliveryManager : MonoBehaviour {
     public event Action OnRecipeCompleted;
     public event Action OnRecipeFailed;
     public event Action OnRecipeWrong;
+    public event Action OnAnyPlateDelivered; // Se déclenche quelle que soit l'assiette
     
     // NOUVEAU : Événement et variable pour le score
     public event Action OnScoreChanged; 
@@ -96,6 +97,7 @@ public class DeliveryManager : MonoBehaviour {
         if (score < 0) score = 0;
         OnScoreChanged?.Invoke();
         OnRecipeWrong?.Invoke();
+        OnAnyPlateDelivered?.Invoke(); // AJOUTE ICI
 
         Debug.Log("Mauvaise recette !");
 
