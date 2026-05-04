@@ -66,6 +66,16 @@ MonoBehaviour:
     lowerYOffset: 0.22
     upperPartPrefab: {fileID: 0}
     upperYOffset: 0
+  - kitchenObjectSO: {fileID: 11400000, guid: e3709104fe5466f4a81cd6ab049d2287, type: 2}
+    lowerPartPrefab: {fileID: 3812876574508226177, guid: 17cb28a1a37fd7f44ae6e1ad2aa9da78, type: 3}
+    lowerYOffset: 0.15
+    upperPartPrefab: {fileID: 0}
+    upperYOffset: 0
+  - kitchenObjectSO: {fileID: 11400000, guid: a4fe629f91420784492a7ca01771c28d, type: 2}
+    lowerPartPrefab: {fileID: 3812876574508226177, guid: 44b7e90f95929c04c8394768d8bd1d14, type: 3}
+    lowerYOffset: 0.25
+    upperPartPrefab: {fileID: 0}
+    upperYOffset: 0
 --- !u!114 &9015347671202773085
 MonoBehaviour:
   m_ObjectHideFlags: 0

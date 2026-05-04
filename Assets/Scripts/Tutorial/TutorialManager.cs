@@ -172,7 +172,7 @@ public class TutorialManager : MonoBehaviour {
                     "Parfait !",
                     "Tu maîtrises les bases. À toi de jouer !",
                     "Lancer la partie",
-                    () => SceneManager.LoadScene("GameScene")
+                    () => SceneManager.LoadScene("GameScene1")
                 );
                 break;
         }
