@@ -17,6 +17,10 @@ public class CuttingCounter : BaseCounter, IHasProgress {
             SO_CuttingRecipe recipe = GetRecipeWithInput(GetKitchenObject().GetKitchenObjectSO());
             if (recipe != null) {
                 cuttingProgress++;
+
+                // 🔊 Son de découpe
+                AudioManager.Instance?.PlayCuttingSound();
+
                 // On envoie le pourcentage à la barre de progression
                 float progressNormalized = (float)cuttingProgress / recipe.cuttingProgressMax;
                 OnProgressChanged?.Invoke(progressNormalized);

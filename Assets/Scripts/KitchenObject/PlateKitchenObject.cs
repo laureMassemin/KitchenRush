@@ -17,7 +17,10 @@ public class PlateKitchenObject : KitchenObject {
         if (kitchenObjectSOList.Contains(kitchenObjectSO)) return false;
 
         kitchenObjectSOList.Add(kitchenObjectSO);
-        
+
+        // 🔊 Son d'ajout d'ingrédient sur l'assiette
+        AudioManager.Instance?.PlayIngredientAdded();
+
         // On prévient le visuel qu'on a ajouté cet ingrédient
         OnIngredientAdded?.Invoke(kitchenObjectSO);
         return true;
