@@ -2,16 +2,28 @@ using UnityEngine;
 using System; 
 
 public class PlayerController : MonoBehaviour {
+
+    // Singleton — permet à SelectedCounterVisual de s'abonner sans référence directe
+    public static PlayerController Instance { get; private set; }
+
     [SerializeField] private float speed = 7f;
     [SerializeField] private LayerMask collisionsLayer;
-    [SerializeField] private LayerMask countersLayer; 
+    [SerializeField] private LayerMask countersLayer;
     private BaseCounter selectedCounter;
     private Vector3 lastInteractDir;
     public event Action<BaseCounter> OnSelectedCounterChanged;
-    [SerializeField] private Transform holdPoint; // Glissez l'objet HoldPoint ici dans l'UI
-    private KitchenObject kitchenObject; // L'objet actuellement porté  
-    
+    [SerializeField] private Transform holdPoint;
+    private KitchenObject kitchenObject;
+
     private bool isWalking;
+
+    private void Awake() {
+        if (Instance != null && Instance != this) {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
 
     void Update() {
         HandleMovement();
@@ -122,15 +134,17 @@ public class PlayerController : MonoBehaviour {
         Debug.DrawRay(rayOrigin, lastInteractDir * interactDistance, Color.red);
 
         if (Physics.Raycast(rayOrigin, lastInteractDir, out RaycastHit raycastHit, interactDistance, countersLayer)) {
-            // Si vous arrivez ici, c'est que le rayon a touché un objet sur le layer "Counters"
             if (raycastHit.transform.TryGetComponent(out BaseCounter counter)) {
                 if (counter != selectedCounter) {
                     selectedCounter = counter;
-                    Debug.Log("Comptoir détecté : " + raycastHit.transform.name); // Plus précis pour le débug
+                    OnSelectedCounterChanged?.Invoke(selectedCounter); // 🔔 Déclenche le surlignage
                 }
             }
         } else {
-            selectedCounter = null;
+            if (selectedCounter != null) {
+                selectedCounter = null;
+                OnSelectedCounterChanged?.Invoke(null); // 🔔 Éteint le surlignage
+            }
         }
     }
 
