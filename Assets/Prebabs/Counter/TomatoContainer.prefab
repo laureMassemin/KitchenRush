@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7975294768970421289}
   - component: {fileID: 9017144680189706607}
   - component: {fileID: 5633079104769593449}
+  - component: {fileID: 460058402035089067}
   m_Layer: 7
   m_Name: TomatoContainer
   m_TagString: Untagged
@@ -95,6 +96,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.4693584, y: 1.4987254, z: 1.4286118}
   m_Center: {x: -0.024088144, y: 0.71869636, z: 0.016765505}
+--- !u!114 &460058402035089067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989329159300745760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc26688fd17d8084f9e4d0b55b93bbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 0.3, g: 1, b: 0.6, a: 1}
+  pulseMin: 0.55
+  pulseSpeed: 2
 --- !u!1 &5237116127771736714
 GameObject:
   m_ObjectHideFlags: 0

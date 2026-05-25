@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 258409679197291663}
   - component: {fileID: 8244191384575947914}
   - component: {fileID: 5343532331945592878}
+  - component: {fileID: 8258899968954151662}
   m_Layer: 7
   m_Name: DeliveryCounter_Visual
   m_TagString: Untagged
@@ -153,6 +154,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 5685265264904094047}
   deliveryManager: {fileID: 0}
+--- !u!114 &8258899968954151662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4203255321411251265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc26688fd17d8084f9e4d0b55b93bbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 1, g: 0.85, b: 0.1, a: 0.4}
+  indicatorScale: {x: 1.1, y: 1.1, z: 1.1}
 --- !u!1 &6695487263287990726
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8212441607164665868}
   - component: {fileID: 5103258851034695110}
   - component: {fileID: 3936603483688228506}
+  - component: {fileID: 4402822696499141805}
   m_Layer: 7
   m_Name: TrashCounter_Visual
   m_TagString: Untagged
@@ -69,6 +70,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 8692809476254461329}
+--- !u!114 &4402822696499141805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5402683899496148290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc26688fd17d8084f9e4d0b55b93bbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 0.3, g: 1, b: 0.6, a: 1}
+  pulseMin: 0.55
+  pulseSpeed: 3.5
 --- !u!1 &6138003444324003994
 GameObject:
   m_ObjectHideFlags: 0

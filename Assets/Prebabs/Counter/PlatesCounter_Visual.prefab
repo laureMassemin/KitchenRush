@@ -209,6 +209,7 @@ GameObject:
   - component: {fileID: 5368865797419153281}
   - component: {fileID: 4158380903432468631}
   - component: {fileID: 1680711417315393269}
+  - component: {fileID: 1130256555721867739}
   m_Layer: 7
   m_Name: PlatesCounter_Visual
   m_TagString: Untagged
@@ -269,3 +270,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.6127931, y: 1.2573142, z: 1.3888702}
   m_Center: {x: -0.012283385, y: 0.5836092, z: 0.07704878}
+--- !u!114 &1130256555721867739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4690138122485423100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc26688fd17d8084f9e4d0b55b93bbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 0.3, g: 1, b: 0.6, a: 1}
+  pulseMin: 0.55
+  pulseSpeed: 2

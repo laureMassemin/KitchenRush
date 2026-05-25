@@ -5022,6 +5022,7 @@ GameObject:
   - component: {fileID: 4557582953570394831}
   - component: {fileID: 8225018604934841544}
   - component: {fileID: 1957946185261836830}
+  - component: {fileID: 3943556596286704795}
   m_Layer: 7
   m_Name: StoveCounter_Visual
   m_TagString: Untagged
@@ -5089,6 +5090,21 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ebb37d19df449f74bbe1842608d49994, type: 2}
   burningRecipeSOArray:
   - {fileID: 11400000, guid: 83847efd05850e046b8a99bc6301c4a8, type: 2}
+--- !u!114 &3943556596286704795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5022728299974654752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc26688fd17d8084f9e4d0b55b93bbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 0.3, g: 1, b: 0.6, a: 1}
+  pulseMin: 0.55
+  pulseSpeed: 2
 --- !u!1 &6247709743660463218
 GameObject:
   m_ObjectHideFlags: 0

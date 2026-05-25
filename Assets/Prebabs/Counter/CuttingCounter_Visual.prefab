@@ -422,6 +422,7 @@ GameObject:
   - component: {fileID: 6871322670576902875}
   - component: {fileID: 4552232163679878565}
   - component: {fileID: 4240589870539584127}
+  - component: {fileID: 2476496217381371653}
   m_Layer: 7
   m_Name: CuttingCounter_Visual
   m_TagString: Untagged
@@ -508,6 +509,21 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fd5b52aade382e749be7c80482804e9c, type: 2}
   - {fileID: 11400000, guid: 8b239be8ae12d9f47b67d4fdd5f3f428, type: 2}
   - {fileID: 11400000, guid: 1b1c2e412b60bc241b5b237be6d082c4, type: 2}
+--- !u!114 &2476496217381371653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7134104867351196989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc26688fd17d8084f9e4d0b55b93bbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 0.3, g: 1, b: 0.6, a: 1}
+  pulseMin: 0.55
+  pulseSpeed: 2
 --- !u!1 &7793978707398912270
 GameObject:
   m_ObjectHideFlags: 0

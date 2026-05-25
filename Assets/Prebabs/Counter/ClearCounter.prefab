@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 5431343473763843831}
   - component: {fileID: 8543831367829703377}
   - component: {fileID: 8029861672519283833}
+  - component: {fileID: 5850628357239699246}
   m_Layer: 7
   m_Name: ClearCounter
   m_TagString: Untagged
@@ -100,6 +101,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.4624963, y: 1.2196447, z: 1.4573135}
   m_Center: {x: 0.018369794, y: 0.65229815, z: 0.033679485}
+--- !u!114 &5850628357239699246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4099689701034799813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc26688fd17d8084f9e4d0b55b93bbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 0.3, g: 1, b: 0.6, a: 1}
+  pulseMin: 0.55
+  pulseSpeed: 2
 --- !u!1 &5920776989210188059
 GameObject:
   m_ObjectHideFlags: 0

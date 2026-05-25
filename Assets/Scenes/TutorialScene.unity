@@ -896,9 +896,9 @@ RectTransform:
   m_Father: {fileID: 371992245}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -200}
-  m_SizeDelta: {x: 0, y: -400}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 87}
+  m_SizeDelta: {x: 0, y: 174}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &800984492
 MonoBehaviour:
@@ -2021,10 +2021,10 @@ RectTransform:
   - {fileID: 636430770}
   m_Father: {fileID: 371992245}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 200.5}
-  m_SizeDelta: {x: 0, y: -399}
+  m_AnchoredPosition: {x: 0, y: -87.5}
+  m_SizeDelta: {x: 0, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2092383927
 MonoBehaviour:
@@ -2064,6 +2064,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2092383925}
   m_CullTransparentMesh: 1
+--- !u!1 &2115420882
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2115420884}
+  - component: {fileID: 2115420883}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2115420883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115420882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd9dedbd1fc681d46a9fcecbc79cf566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuMusic: {fileID: 8300000, guid: 4c8b0fe5bc2508b4bacf09035ea7100f, type: 3}
+  gameMusic: {fileID: 8300000, guid: 74bafd7a63bd9bd439d004770e5a1489, type: 3}
+  tutorialMusic: {fileID: 8300000, guid: 95789867698321a48b701e0f1b0e405e, type: 3}
+  musicVolume: 0.35
+  recipeSuccessSound: {fileID: 8300000, guid: 53766c81bf383cc4687c41128554d3b6, type: 3}
+  recipeWrongSound: {fileID: 8300000, guid: b8cdc9e62dad1f9499a07b9b6bca3a01, type: 3}
+  recipeExpiredSound: {fileID: 8300000, guid: 1f29d90606482054abb91f401af40f68, type: 3}
+  gameOverSound: {fileID: 8300000, guid: c326b159e5d761649a148c10d687ea39, type: 3}
+  timerWarningSound: {fileID: 8300000, guid: b7d59ad346cc47240909a23c9575831a, type: 3}
+  timerWarningThreshold: 20
+  cuttingSound: {fileID: 8300000, guid: 36765be8b4662104da379feb28991791, type: 3}
+  ingredientAddedSound: {fileID: 8300000, guid: 47ce73e8d5162994e94f7100e390c050, type: 3}
+  pickUpSound: {fileID: 8300000, guid: 2d7e25b6a6c40974eadf0c5a91348876, type: 3}
+  sfxVolume: 0.8
+--- !u!4 &2115420884
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115420882}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 602.25, y: 287.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2144656059
 GameObject:
   m_ObjectHideFlags: 0
@@ -2218,3 +2276,4 @@ SceneRoots:
   - {fileID: 2061747054}
   - {fileID: 2033909125}
   - {fileID: 542500847}
+  - {fileID: 2115420884}
