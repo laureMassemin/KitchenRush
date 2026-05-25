@@ -9,6 +9,9 @@ public class CuttingCounter : BaseCounter, IHasProgress {
     public override void Interact() {
         // Logique de pose/prise identique au BaseCounter ou personnalisée
         base.Interact();
+        // Reset la progression quand on pose ou prend un objet sur le comptoir
+        cuttingProgress = 0;
+        OnProgressChanged?.Invoke(0f);
     }
 
     // Nouvelle méthode pour l'action de couper
@@ -29,7 +32,9 @@ public class CuttingCounter : BaseCounter, IHasProgress {
                     // Transformation !
                     KitchenObject item = GetKitchenObject();
                     Destroy(item.gameObject); // On détruit la tomate entière
-                    
+
+                    cuttingProgress = 0; // ← Reset pour le prochain objet
+
                     GameObject sliced = Instantiate(recipe.output.prefab);
                     sliced.GetComponent<KitchenObject>().SetKitchenObjectParent(GetSpawnPoint());
                     SetKitchenObject(sliced.GetComponent<KitchenObject>());
